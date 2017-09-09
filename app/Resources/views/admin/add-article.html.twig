@@ -1,0 +1,51 @@
+{% extends 'base/main.html.twig' %}
+
+{% block content %}
+
+	<br>
+
+	  <h4><a href="{{ path('blog_list') }}" class="btn btn-outline-info" >Go To Posts</a></h4>
+
+	<br>
+
+	<div class="row">
+		<div class="col-md-12">
+			{% for label, messages in app.flashes %}
+				  {% for message in messages %}
+					<div class="alert alert-{{ label }}" role="alert">
+						{{ message }}
+					</div>
+				  {% endfor %}
+			{% endfor %}
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card card-body bg-light">
+				<div class="card-title">
+					New Article
+				</div>
+	  			<div class="card-block">
+
+					{{ form_start(form) }}
+
+						{{ form_errors(form) }}
+
+						<fieldset>
+
+						    {{ form_widget(form) }}
+
+						</fieldset>
+
+					{{ form_end(form) }}
+
+	  			</div>
+	  		</div>
+		</div>
+	</div>
+
+	<br>
+
+
+{% endblock %}

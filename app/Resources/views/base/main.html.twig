@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <meta charset="UTF-8" />
+        
+        <title>{% block title %}SymfoBlog{% endblock %}</title>
+
+        {% include 'base/css.html.twig' %}
+
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+
+    </head>
+
+    <body>
+
+        {% block body %}
+
+            {% include 'parts/nav.html.twig' %}
+
+            <div class="container">
+
+              <div class="row">
+
+                <!-- Post Content Column -->
+                <div class="col-lg-12">
+
+                    {% block content %}{% endblock %}
+
+                </div>
+
+              </div>
+              <!-- /.row -->
+
+            </div>
+            <!-- /.container -->
+
+            {% include 'parts/footer.html.twig' %}
+
+        {% endblock %}
+
+        {% include 'base/js.html.twig' %}
+
+    </body>
+
+</html>

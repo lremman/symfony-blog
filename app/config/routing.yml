@@ -1,0 +1,23 @@
+#PAGES
+blog_list:
+    path:     /
+    defaults: { _controller: AppBundle:Blog:showList }
+
+blog_ajax_list_paginate:
+    path:     /ajax/list/
+    defaults: { _controller: AppBundle:Blog:ajaxListPaginate }
+    condition: "request.isXmlHttpRequest()"
+    requirements:
+        page: '\d+'
+
+blog_item:
+    path:     /{id}
+    defaults: { _controller: AppBundle:Blog:showItem }
+    requirements:
+        id: '\d+'
+
+# ADMIN
+admin_add_article:
+    path:     /admin/add-article
+    defaults: { _controller: AppBundle:Admin:getAddArticle }
+

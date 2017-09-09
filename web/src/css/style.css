@@ -1,0 +1,37 @@
+/*!
+ *
+ */
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  padding-top: 54px;
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+
+@media (min-width: 992px) {
+  body {
+    padding-top: 56px;
+  }
+}
+
+.blog-item-card {
+	margin-bottom: 25px;
+}
+
+.has-error.has-error .list-unstyled{
+	color:red;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f5f5f5;
+}

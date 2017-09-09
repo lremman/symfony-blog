@@ -1,0 +1,39 @@
+{% extends 'base/main.html.twig' %}
+
+{% block content %}
+
+	<br>
+
+	<div class="row js-blog-articles">
+		{% if articles.count() %}
+			{% include 'blog/portlets/list-items.html.twig' with {articles: articles} %}
+		{% else %}
+			<div class="col-md-12">
+				<div class="alert alert-info" role="alert">
+				  <strong>No posts to show!</strong> You can <a href="{{ path('admin_add_article') }}">add first your post</a> right now.
+				</div>
+			</div>
+		{% endif %}
+	</div>
+
+
+	{% if (articles.getPage() ?: 1) < articles.getPageCount() %}
+	    <div class="row" id="paginator">
+			<div class="col-md-12">
+				<div class="text-center">
+					<a 	
+						id="loadMoreArticles"
+						class="btn btn-outline-info" 
+						href="{{ url('blog_ajax_list_paginate') }}"
+						data-next-page="{{ (articles.getPage() ? : 1) + 1 }}"
+					>Load more</a>
+				</div>
+			</div>
+		</div>
+		<br>
+	{% endif %}
+
+	<br>
+
+
+{% endblock %}

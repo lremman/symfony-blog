@@ -1,0 +1,24 @@
+{% extends 'base/main.html.twig' %}
+
+{% block content %}
+
+  <br>
+
+  <h4><a href="{{ path('blog_list') }}" class="btn btn-outline-info" >To All Posts</a></h4>
+  <!-- Title -->
+  <h1 class="mt-4">{{ article.getTitle() }}</h1>
+
+  <hr>
+
+  <!-- Date/Time -->
+  <!-- <p>Posted on January 1, 2017 at 12:00 PM</p> -->
+  <p>Posted on {{ article.getCreatedAt()|date('F j, Y \\a\\t g:i A') }}</p>
+  
+  <hr>
+
+  <!-- Post Content -->
+  <p class="lead">
+    {{ article.getText() }}
+  </p>
+
+{% endblock %}
